@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./assets/image/favicon.png" />
+    <title>Random Dog Gallery</title>
+  </head>
+  <body>
+    <main>
+      <div class="control">
+        <input
+          id="randomAPIInputField"
+          type="text"
+          value="https://dog.ceo/api/breeds/image/random/6"
+        />
+        <button id="fetchBtn" onclick="getRandomDogImage()">Fetch!</button>
+      </div>
+      <div class="randomDogImages"></div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
