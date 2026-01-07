@@ -21,6 +21,9 @@ This project demonstrates **async/await**, **DOM manipulation**, **loading state
 ![Demo Screenshot](assets/random-dog-gallery.png)
 
 ---
+## Live Demo
+
+Check out the live site here: [Random Dog Gallery](https://faizullah98.github.io/random-dog-gallery/)
 
 ## Tech Stack
 
