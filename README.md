@@ -18,7 +18,7 @@ This project demonstrates **async/await**, **DOM manipulation**, **loading state
 
 ## Demo
 
-![Demo Screenshot](assets/demo-screenshot.png)
+![Demo Screenshot](assets/random-dog-gallery.png)
 
 ---
 
