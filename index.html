@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,16 +8,33 @@
     <title>Random Dog Gallery</title>
   </head>
   <body>
-    <main>
-      <div class="control">
-        <input
-          id="randomAPIInputField"
-          type="text"
-          value="https://dog.ceo/api/breeds/image/random/6"
-        />
-        <button id="fetchBtn" onclick="getRandomDogImage()">Fetch!</button>
+    <header>
+      <div class="container">
+        <a href="/" class="logo-wrapper">
+          <img src="./assets/dog icon.png" alt="dog icon" />
+          <span>Random Dog Gallery</span>
+        </a>
+        <nav class="navbar">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </nav>
       </div>
-      <div class="randomDogImages"></div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="control">
+          <input
+            id="randomAPIInputField"
+            type="text"
+            value="https://dog.ceo/api/breeds/image/random/6"
+          />
+          <button id="fetchBtn" onclick="getRandomDogImage()">Fetch!</button>
+        </div>
+        <div class="randomDogImages"></div>
+      </div>
     </main>
 
     <script src="script.js"></script>
