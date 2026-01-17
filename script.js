@@ -1,4 +1,4 @@
-const apiUrl = "https://dog.ceo/api/breeds/image/random/6";
+const apiUrl = "https://dog.ceo/api/breeds/image/random/8";
 const inputField = document.getElementById("randomAPIInputField");
 const randomDogImages = document.querySelector(".randomDogImages");
 
