@@ -3,6 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Poppins", sans-serif;
 }
@@ -89,6 +92,26 @@ input#randomAPIInputField:focus {
   grid-template-columns: repeat(auto-fit, minmax(254px, 1fr));
   gap: 15px;
   margin-top: 40px;
+  scroll-padding-top: 120px;
+  height: auto;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.randomDogImages .fullwidth {
+  /* Styles when the 'fullwidth' class is applied */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  z-index: 9999;
+  background-color: black;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .dog-image {
@@ -96,4 +119,38 @@ input#randomAPIInputField:focus {
   height: 200px;
   object-fit: cover;
   border-radius: 8px;
+}
+main {
+  max-width: 1100px;
+  margin: auto;
+}
+.thumbnail-img {
+  width: 200px;
+  height: auto;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.dog-image {
+  cursor: pointer;
+}
+.fullwidth {
+  width: 100%;
+}
+.randomDogImages {
+  position: relative;
+}
+
+.fullwidth {
+  width: 100%;
+  display: block;
+}
+.removeDogBtn {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  top: 10px;
+  right: 200px;
+  z-index: 9999;
+  font-size: 1.1rem;
+  cursor: pointer;
 }

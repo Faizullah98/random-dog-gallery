@@ -1,5 +1,4 @@
-const apiUrl = "https://dog.ceo/api/breeds/image/random/8";
-const inputField = document.getElementById("randomAPIInputField");
+const apiUrl = "https://dog.ceo/api/breeds/image/random/9";
 const randomDogImages = document.querySelector(".randomDogImages");
 
 async function getRandomDogImage() {
@@ -12,14 +11,40 @@ async function getRandomDogImage() {
     }
 
     const data = await response.json();
-    data.message.map((imageUrl) => {
+
+    data.message.forEach((imageUrl) => {
+      // wrapper (no new custom class needed)
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+      wrapper.style.display = "inline-block";
+
       const img = document.createElement("img");
       img.classList.add("dog-image");
       img.src = imageUrl;
-      randomDogImages.appendChild(img);
+
+      const crossBtn = document.createElement("button");
+      crossBtn.textContent = "X";
+      crossBtn.classList.add("removeDogBtn");
+      crossBtn.style.display = "none";
+
+      img.addEventListener("click", () => {
+        img.classList.add("fullwidth");
+        crossBtn.style.display = "block";
+      });
+
+      crossBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        img.classList.remove("fullwidth");
+        crossBtn.style.display = "none";
+      });
+
+      wrapper.appendChild(img);
+      wrapper.appendChild(crossBtn);
+      randomDogImages.appendChild(wrapper);
     });
   } catch (error) {
     console.log(error.message);
   }
 }
+
 getRandomDogImage();
