@@ -16,7 +16,7 @@ body {
 }
 /* header styling  */
 header {
-  border-bottom: 2px solid #dcdce3;
+  border-bottom: 1px solid #dcdce3;
 }
 .logo-wrapper {
   display: flex;
@@ -25,25 +25,28 @@ header {
   vertical-align: middle;
   text-decoration: none;
 }
-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 header .logo-wrapper img {
   height: 60px;
   max-width: 60px;
   display: inline-block;
   object-fit: cover;
+  margin-left: -10px;
 }
 header .logo-wrapper span {
   font-size: 1.4rem;
   font-weight: 600;
   color: #000000c9;
 }
-.navbar ul {
+.navbar {
   display: flex;
-  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.navbar .nav-links {
+  display: flex;
+  gap: 1.4rem;
   list-style-type: none;
   font-size: 1rem;
 }
@@ -52,6 +55,17 @@ header .logo-wrapper span {
   color: #2b2e38;
   font-weight: 500;
 }
+.hamburger-menu span {
+  width: 20px;
+  height: 3px;
+  margin-bottom: 3px;
+  display: block;
+  background-color: #222;
+}
+.hamburger-menu {
+  display: none;
+}
+
 main {
   padding: 20px 20px;
   max-width: 1100px;
@@ -66,7 +80,8 @@ input#randomAPIInputField {
   padding: 0.8rem 1rem;
   background: #eeeeee;
   border: none;
-  width: 340px;
+  width: 100%;
+  max-width: 340px;
   font-size: 1rem;
   font-weight: 500;
 }
@@ -91,7 +106,7 @@ input#randomAPIInputField:focus {
 }
 .randomDogImages {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(254px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(254px, 100%), 1fr));
   gap: 15px;
   margin-top: 40px;
   scroll-padding-top: 120px;
@@ -120,11 +135,6 @@ input#randomAPIInputField:focus {
   padding: 20px;
   box-sizing: border-box;
 }
-.randomDogImages .fullwidth .dog-image img {
-  width: 100%;
-  max-width: 100px;
-}
-
 .thumbnail-img {
   width: 200px;
   height: auto;
@@ -140,13 +150,6 @@ input#randomAPIInputField:focus {
 .randomDogImages {
   position: relative;
 }
-/* 
-.fullwidth {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  display: block;
-} */
 .removeDogBtn {
   width: 30px;
   height: 30px;
@@ -156,4 +159,58 @@ input#randomAPIInputField:focus {
   z-index: 9999;
   font-size: 1.1rem;
   cursor: pointer;
+}
+@media (max-width: 568px) {
+  header {
+    padding-inline: 15px;
+  }
+  .hamburger-menu {
+    display: block;
+  }
+  .hamburger-menu span {
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  .navbar .nav-links {
+    position: absolute;
+    top: 54px;
+    left: 0;
+    background-color: #111;
+    width: 100%;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+  .nav-links.active {
+    max-height: 200px;
+    z-index: 1;
+    padding: 1rem;
+  }
+  .nav-links.active li a {
+    color: #fff;
+  }
+  .hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(2px, 6px);
+  }
+  .hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(3px, -7px);
+  }
+  input#randomAPIInputField {
+    width: 100%;
+  }
+  .control {
+    text-align: center;
+  }
+}
+@media (min-width: 320px) and (max-width: 375px) {
+  header .logo-wrapper span {
+    display: none;
+  }
 }

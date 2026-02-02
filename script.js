@@ -1,6 +1,16 @@
+// navbar
+const hamburgerIcon = document.querySelector(".hamburger-menu");
+const navLinks = document.querySelector(".nav-links");
+
+hamburgerIcon.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  hamburgerIcon.classList.toggle("active");
+});
+
 const apiUrl = "https://dog.ceo/api/breeds/image/random/9";
 const randomDogImages = document.querySelector(".randomDogImages");
 
+// dog ceo integration
 async function getRandomDogImage() {
   try {
     randomDogImages.innerHTML = "";
