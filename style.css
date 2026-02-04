@@ -1,216 +1,227 @@
-* {
-  padding: 0px 0px;
-  margin: 0;
-  box-sizing: border-box;
-}
-html {
-  scroll-behavior: smooth;
-}
+/* General page styles */
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
 }
-/* global styling  */
+
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: auto;
-}
-/* header styling  */
-header {
-  border-bottom: 1px solid #dcdce3;
-}
-.logo-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 1px;
-  vertical-align: middle;
-  text-decoration: none;
+  background: #ffffff;
+  padding: 0px 10px 20px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-header .logo-wrapper img {
-  height: 60px;
-  max-width: 60px;
-  display: inline-block;
-  object-fit: cover;
-  margin-left: -10px;
-}
-header .logo-wrapper span {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #000000c9;
-}
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-.navbar .nav-links {
-  display: flex;
-  gap: 1.4rem;
-  list-style-type: none;
-  font-size: 1rem;
-}
-.navbar ul li a {
-  text-decoration: none;
-  color: #2b2e38;
-  font-weight: 500;
-}
-.hamburger-menu span {
-  width: 20px;
-  height: 3px;
-  margin-bottom: 3px;
-  display: block;
-  background-color: #222;
-}
-.hamburger-menu {
-  display: none;
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  animation: fadeDown 0.8s ease;
+  padding-top: 10px;
 }
 
-main {
-  padding: 20px 20px;
-  max-width: 1100px;
-  margin: auto;
+/* Controls */
+.controls {
+  margin-bottom: 15px;
 }
 
-/* random dog image styling  */
-.control {
-  max-width: 100%;
-}
-input#randomAPIInputField {
-  padding: 0.8rem 1rem;
-  background: #eeeeee;
-  border: none;
-  width: 100%;
-  max-width: 340px;
+#breed-select,
+button {
+  padding: 8px 14px;
   font-size: 1rem;
-  font-weight: 500;
-}
-input#randomAPIInputField:focus {
-  border: none;
-  outline: none;
-}
-#fetchBtn {
-  padding: 0.8rem 1rem;
-  border: none;
-  background-color: #1782c4;
-  font-size: 1rem;
-  color: #fff;
-  font-weight: 500;
-  border-radius: 4px;
-  margin-left: -4px;
+  margin: 0 5px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
   cursor: pointer;
-  transition: background-color 0.5s ease;
+  transition: all 0.2s ease-in-out;
 }
-#fetchBtn:hover {
-  background-color: #035c94;
+
+#breed-select:hover,
+button:hover {
+  border-color: #333;
+  transform: scale(1.05);
 }
+
+/* Status message */
+.status {
+  font-weight: bold;
+  color: #666;
+  margin: 10px 0;
+  animation: fadeDown 0.5s ease;
+}
+
+/* Dog gallery grid */
 .randomDogImages {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(254px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 15px;
-  margin-top: 40px;
-  scroll-padding-top: 120px;
-  height: auto;
-  cursor: pointer;
-  transition: all 0.5s ease;
+  margin-top: 20px;
 }
-.dog-image {
+
+/* Wrapper card with animation */
+.randomDogImages div {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeUp 0.6s forwards;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.randomDogImages div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Dog images */
+.randomDogImages img {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
-  border-radius: 8px;
+  display: block;
+  border-radius: 12px;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
 }
-.randomDogImages .fullwidth {
+
+.randomDogImages img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.05);
+}
+
+/* Fullscreen image */
+.randomDogImages img.fullwidth {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100vw;
-  height: 100vh;
-  object-fit: contain;
-  z-index: 9999;
-  background-color: black;
-  display: grid;
-  place-items: center;
-  padding: 20px;
-  box-sizing: border-box;
-}
-.thumbnail-img {
-  width: 200px;
+  width: 80%;
+  max-width: 800px;
   height: auto;
-  cursor: pointer;
-  transition: all 0.5s ease;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease;
 }
-.dog-image {
-  cursor: pointer;
-}
-.fullwidth {
-  width: 100%;
-}
-.randomDogImages {
-  position: relative;
-}
-.removeDogBtn {
-  width: 30px;
-  height: 30px;
-  position: fixed;
-  top: 10px;
-  right: 200px;
-  z-index: 9999;
-  font-size: 1.1rem;
-  cursor: pointer;
-}
-@media (max-width: 568px) {
-  header {
-    padding-inline: 15px;
-  }
-  .hamburger-menu {
-    display: block;
-  }
-  .hamburger-menu span {
-    transition:
-      transform 0.3s ease,
-      opacity 0.3s ease;
-  }
 
-  .navbar .nav-links {
-    position: absolute;
-    top: 54px;
-    left: 0;
-    background-color: #111;
-    width: 100%;
-    flex-direction: column;
-    gap: 1.2rem;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-  }
-  .nav-links.active {
-    max-height: 200px;
-    z-index: 1;
-    padding: 1rem;
-  }
-  .nav-links.active li a {
-    color: #fff;
-  }
-  .hamburger-menu.active span:nth-child(1) {
-    transform: rotate(45deg) translate(2px, 6px);
-  }
-  .hamburger-menu.active span:nth-child(2) {
+/* Cross button */
+.removeDogBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 6px 10px;
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 50%;
+  display: none;
+  transition: all 0.2s ease;
+}
+
+.removeDogBtn:hover {
+  background: rgba(255, 0, 0, 1);
+}
+
+/* Breed label */
+.breed-label {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 3px 6px;
+  border-radius: 6px;
+  text-transform: capitalize;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.randomDogImages div:hover .breed-label {
+  opacity: 1;
+}
+
+/* Favorite button */
+.favBtn {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.favBtn:hover {
+  transform: scale(1.2);
+}
+
+/* Animations */
+@keyframes fadeUp {
+  0% {
+    transform: translateY(20px);
     opacity: 0;
   }
-  .hamburger-menu.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(3px, -7px);
-  }
-  input#randomAPIInputField {
-    width: 100%;
-  }
-  .control {
-    text-align: center;
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
-@media (min-width: 320px) and (max-width: 375px) {
-  header .logo-wrapper span {
-    display: none;
+
+@keyframes fadeDown {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .randomDogImages img {
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .randomDogImages img {
+    height: 120px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  #breed-select,
+  button {
+    font-size: 0.9rem;
+    padding: 6px 10px;
   }
 }
