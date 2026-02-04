@@ -1,6 +1,6 @@
 # Random Dog Gallery 🐶
 
-A simple **JavaScript project** that fetches random dog images from the [Dog CEO API](https://dog.ceo/dog-api/) and displays them in a **responsive grid**.  
+A simple **JavaScript project** that fetches random dog images from the [Dog CEO API](https://dog.ceo/dog-api/) and displays them in a **responsive grid**.
 
 This project demonstrates **async/await**, **DOM manipulation**, **loading states**, and **responsive design** using vanilla JS and CSS.
 
@@ -21,14 +21,15 @@ This project demonstrates **async/await**, **DOM manipulation**, **loading state
 ![Demo Screenshot](assets/random-dog-gallery.png)
 
 ---
+
 ## Live Demo
 
 Check out the live site here: [Random Dog Gallery](https://faizullah98.github.io/random-dog-gallery/)
 
 ## Tech Stack
 
-- HTML  
-- CSS (Grid Layout)  
+- HTML
+- CSS (Grid Layout)
 - JavaScript (async/await, fetch API)
 
 ---
@@ -39,3 +40,4 @@ Check out the live site here: [Random Dog Gallery](https://faizullah98.github.io
 
 ```bash
 git clone https://github.com/yourusername/random-dog-gallery.git
+```
